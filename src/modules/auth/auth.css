@@ -1,0 +1,83 @@
+.auth-main-con{
+    background-image: url(../../../public/assets/bookstore-bg.avif);
+    height: 100vh;
+    background-size: cover;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    background-position: center;
+}
+
+.log-in-con{
+    /* background-image: url(../../../public/assets/bookstore-bg.avif); */
+    height: 100vh;
+    background-size: cover;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+    background-position: center;
+}
+
+.image-con{
+    background-color: antiquewhite;
+    height: 100vh;
+}
+    
+.form-con{
+    box-sizing: border-box;
+    padding: 40px;
+    min-width: 50%;
+    /* height: 100%; */
+    backdrop-filter: brightness(40%);
+    flex-direction: column;
+    display: flex;
+    gap: 5px;
+    align-items: start;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.75);
+}
+
+.login-text {
+    font-weight: normal;
+    font-size: 24px;
+    text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+    color: #fff;
+
+}
+
+.label {
+    /* color: rgba(255, 255, 255, 0.0); */
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    align-self: flex-start;
+}
+
+.input {
+    background: rgba(255, 255, 255, 0.3);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    padding: 0px 20px;
+    border: none;
+    color: white;
+    width: 100%;
+    min-width: 350px;
+}
+
+.err-msg{
+    margin-bottom: 15px;
+    align-self: flex-start;
+}
+
+.input::placeholder {
+    color: #ffffff; 
+    opacity: 0.7;
+}
+
+.button{
+    background: rgba(45, 126, 231);
+    height: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+    border: none;
+    margin: 10px 0px;
+}
