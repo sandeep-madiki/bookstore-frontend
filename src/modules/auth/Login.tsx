@@ -46,7 +46,7 @@ function Login() {
 
       // Make the POST request to the API
       const response: any = await axios.post(
-        "https://bookstore-backend-1-op2l.onrender.com/auth/login",
+        "https://bookstore-backend-1-op2l.onrender.com/api/auth/login",
         data
       );
       if (response.http_code === 401) {
