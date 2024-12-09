@@ -46,9 +46,13 @@ function Login() {
 
       // Make the POST request to the API
       const response: any = await axios.post(
-        "https://bookstore-backend-1-op2l.onrender.com/api/auth/login",
+        "http://localhost:4545/api/auth/login",
         data
       );
+      // const response: any = await axios.post(
+      //   "https://bookstore-backend-1-op2l.onrender.com/api/auth/login",
+      //   data
+      // );
       if (response.http_code === 401) {
         console.log("first", response.http_code);
       }
@@ -72,89 +76,89 @@ function Login() {
 
   return (
     <Formik
-    initialValues={{ username: "", password: "" }}
-    validationSchema={LoginSchema}
-    enableReinitialize={true}
-    onSubmit={handleOnSubmit}
-  >
-    {({ values }) => (
-      <Form
-        className="w-100"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <div className="form-con">
-          <h1 className="login-text">LOG IN</h1>
-          <label htmlFor="" className="label">
-            Username
-          </label>
-          <Field
-            id="username"
-            name="username"
-            type="text"
-            className="input"
-            placeholder="Enter username"
-          />
-          <div className="text-danger err-msg">
-            <ErrorMessage name="username" />
-          </div>
-
-          <label htmlFor="" className="label">
-            password
-          </label>
-          <div className="" style={{ position: "relative" }}>
+      initialValues={{ username: "", password: "" }}
+      validationSchema={LoginSchema}
+      enableReinitialize={true}
+      onSubmit={handleOnSubmit}
+    >
+      {({ values }) => (
+        <Form
+          className="w-100"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <div className="form-con">
+            <h1 className="login-text">LOG IN</h1>
+            <label htmlFor="" className="label">
+              Username
+            </label>
             <Field
-              id="password"
-              name="password"
-              type={showPassword ? "text" : "password"}
-              className="input w-full px-4 py-2 border rounded-lg pr-10"
-              placeholder="Enter password"
+              id="username"
+              name="username"
+              type="text"
+              className="input"
+              placeholder="Enter username"
             />
-            <span
-              style={{
-                position: "absolute",
-                right: "16px",
-                top: "50%",
-                transform: "translateY(-60%)",
-                cursor: "pointer",
-              }}
-            >
-              {showPassword ? (
-                <FaEyeSlash onClick={() => setShowPassword(false)} />
-              ) : (
-                <FaEye onClick={() => setShowPassword(true)} />
-              )}
-            </span>
+            <div className="text-danger err-msg">
+              <ErrorMessage name="username" />
+            </div>
+
+            <label htmlFor="" className="label">
+              password
+            </label>
+            <div className="" style={{ position: "relative" }}>
+              <Field
+                id="password"
+                name="password"
+                type={showPassword ? "text" : "password"}
+                className="input w-full px-4 py-2 border rounded-lg pr-10"
+                placeholder="Enter password"
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  right: "16px",
+                  top: "50%",
+                  transform: "translateY(-60%)",
+                  cursor: "pointer",
+                }}
+              >
+                {showPassword ? (
+                  <FaEyeSlash onClick={() => setShowPassword(false)} />
+                ) : (
+                  <FaEye onClick={() => setShowPassword(true)} />
+                )}
+              </span>
+            </div>
+
+            <div className="text-danger err-msg">
+              <ErrorMessage name="password" />
+            </div>
+
+            <button className="button w-100" type="submit">
+              Sign In
+            </button>
+
+            {pwErr && <div className="text-danger m-0">{pwErrMsg}</div>}
+
+            <p style={{ color: "#fff" }}>
+              Don't have an account?{" "}
+              <Link
+                to="/auth/registration"
+                className="text-primary"
+                style={{ cursor: "pointer" }}
+              >
+                Sign Up
+              </Link>
+            </p>
           </div>
-
-          <div className="text-danger err-msg">
-            <ErrorMessage name="password" />
-          </div>
-
-          <button className="button w-100" type="submit">
-            Sign In
-          </button>
-
-          {pwErr && <div className="text-danger m-0">{pwErrMsg}</div>}
-
-          <p style={{ color: "#fff" }}>
-            Don't have an account?{" "}
-            <Link
-              to="/auth/registration"
-              className="text-primary"
-              style={{ cursor: "pointer" }}
-            >
-              Sign Up
-            </Link>
-          </p>
-        </div>
-      </Form>
-    )}
-  </Formik>
+        </Form>
+      )}
+    </Formik>
   );
 }
 
